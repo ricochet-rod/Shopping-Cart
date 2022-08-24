@@ -1,10 +1,23 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+<div>
+  <h1>{{ name }}</h1>
+  <button class="btn" @click="placeOrder">Place you order!</button>
+</div>
 </template>
+
+<script>
+export default {
+  setup() {
+    const name = "The Snazzy Burger";
+    console.log(name);
+    const placeOrder = () => alert("Your order has been placed!");
+    return {
+      name,
+      placeOrder
+    };
+  },
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -15,16 +28,4 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
